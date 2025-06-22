@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 export default function Upload({ token }) {
   const [form, setForm] = useState({ title: "", description: "" });
   const [file, setFile] = useState();
@@ -13,7 +15,7 @@ export default function Upload({ token }) {
     data.append("title", form.title);
     data.append("description", form.description);
     data.append("file", file);
-    await axios.post("http://localhost:5000/api/upload", data, {
+    await axios.post(`${API_BASE_URL}/api/upload`, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
     alert("Video uploaded!");

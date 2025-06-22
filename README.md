@@ -29,7 +29,13 @@ This is the frontend for the STRMLY demo application built using React.js. It pr
    npm install
    ```
 
-3. Start the development server:
+3. Create a .env file in the root of the project and add your API base URL:
+
+   ```bash
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+
+4. Start the development server:
    ```bash
    npm start
    ```
